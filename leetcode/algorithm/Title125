@@ -1,0 +1,32 @@
+package leetcode.algorithm;
+
+/**
+ * @author Chenger
+ * @description “回文串”是一个正读和反读都一样的字符串，比如“level”或者“noon”等等就是回文串。
+ * @date 2021/2/20 10:48
+ * @url https://leetcode-cn.com/problems/valid-palindrome/
+ */
+public class Main125 {
+
+    public static void main(String[] args) {
+        Main125 main = new Main125();
+        System.out.println(main.isPalindrome("A man, a plan, a canal: Panama"));
+        System.out.println(main.isPalindrome("race a car"));
+    }
+
+    public boolean isPalindrome(String s) {
+        //\w  为字母，数字，下划线
+        s = s.replaceAll("[^\\w]|_", "").toLowerCase();
+//        s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
+        // 判断是是否为 字母或数字
+//        Character.isLetterOrDigit('c');
+        int length = s.length();
+        for (int i = 0, j = length - 1; i < j; i++, j--) {
+            if(s.charAt(i) != s.charAt(j)) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
